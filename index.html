@@ -39,8 +39,12 @@
     .decor-1 { width: 380px; height: 380px; top: -200px; right: -120px; background: var(--circulo); }
     .decor-2 { width: 420px; height: 420px; top: -210px; right: -140px; border: 1px solid #24365A; }
     .contenido { position: relative; z-index: 1; }
-    .etiqueta { display: flex; align-items: center; gap: 10px; font-size: 0.72rem; letter-spacing: 0.22em; color: var(--azul); text-transform: uppercase; margin-bottom: 26px; }
+    .cabecera { display: flex; justify-content: space-between; align-items: center; margin-bottom: 26px; }
+    .etiqueta { display: flex; align-items: center; gap: 10px; font-size: 0.72rem; letter-spacing: 0.22em; color: var(--azul); text-transform: uppercase; }
     .etiqueta::before { content: ''; width: 3px; height: 18px; background: var(--azul); border-radius: 2px; }
+    .idioma { display: flex; border: 1.5px solid var(--linea); border-radius: 999px; overflow: hidden; }
+    .idioma button { background: transparent; border: none; color: var(--gris); font: inherit; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; padding: 6px 12px; cursor: pointer; }
+    .idioma button.activo { background: var(--azul); color: #0B1220; }
     .marca { display: flex; align-items: center; gap: 18px; margin-bottom: 34px; }
     .logo-circulo { width: 108px; height: 108px; flex: 0 0 108px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(0,0,0,0.35); }
     .logo-circulo svg { width: 88px; height: 88px; }
@@ -62,7 +66,7 @@
     .persona-tel { color: var(--texto); font-size: 1.35rem; margin-bottom: 4px; }
     .persona-mail { color: var(--texto-suave); font-size: 0.98rem; margin-bottom: 22px; }
     .acciones { display: grid; grid-template-columns: 2fr 1fr; gap: 12px; }
-    .btn { display: flex; align-items: center; justify-content: center; gap: 8px; border-radius: 10px; padding: 15px 10px; font-size: 1rem; font-weight: 700; text-decoration: none; cursor: pointer; font-family: inherit; transition: transform 0.1s, opacity 0.2s; line-height: 1.2; }
+    .btn { display: flex; align-items: center; justify-content: center; gap: 8px; border-radius: 10px; padding: 15px 10px; font-size: 1rem; font-weight: 700; text-decoration: none; cursor: pointer; font-family: inherit; transition: transform 0.1s, opacity 0.2s; line-height: 1.2; text-align: center; }
     .btn:active { transform: scale(0.98); opacity: 0.9; }
     .btn-wa { background: var(--azul); color: #0B1220; border: none; }
     .btn-llamar { background: transparent; color: var(--texto); border: 1.5px solid #3A4E75; }
@@ -76,7 +80,13 @@
     <div class="decor-2"></div>
     <div class="decor-1"></div>
     <div class="contenido">
-      <div class="etiqueta">Inteligencia Artificial</div>
+      <div class="cabecera">
+        <div class="etiqueta" data-es="Inteligencia Artificial" data-en="Artificial Intelligence">Inteligencia Artificial</div>
+        <div class="idioma" role="group" aria-label="Idioma / Language">
+          <button type="button" id="btnES" class="activo">ES</button>
+          <button type="button" id="btnEN">EN</button>
+        </div>
+      </div>
       <div class="marca">
         <div class="logo-circulo">
           <svg viewBox="0 0 200 200" aria-hidden="true">
@@ -102,24 +112,24 @@
           <p class="marca-sub">Business &amp; Associates</p>
         </div>
       </div>
-      <h2 class="titular">Automatizaciones y agentes de voz con CRM.</h2>
+      <h2 class="titular" data-es="Automatizaciones y agentes de voz con CRM." data-en="Automations and AI voice agents with CRM.">Automatizaciones y agentes de voz con CRM.</h2>
       <ul class="servicios">
-        <li>Atención al cliente por WhatsApp</li>
-        <li>Citas y recordatorios automáticos</li>
-        <li>CRM y seguimiento de clientes</li>
-        <li>Páginas web para negocios</li>
-        <li>Servicios para redes sociales</li>
+        <li data-es="Atención al cliente por WhatsApp" data-en="Customer service via WhatsApp">Atención al cliente por WhatsApp</li>
+        <li data-es="Citas y recordatorios automáticos" data-en="Automatic appointments and reminders">Citas y recordatorios automáticos</li>
+        <li data-es="CRM y seguimiento de clientes" data-en="CRM and customer follow-up">CRM y seguimiento de clientes</li>
+        <li data-es="Páginas web para negocios" data-en="Websites for businesses">Páginas web para negocios</li>
+        <li data-es="Servicios para redes sociales" data-en="Social media services">Servicios para redes sociales</li>
       </ul>
       <p class="persona-nombre">Manuel Pérez</p>
       <a class="persona-tel" href="tel:+17874872727">(787) 487-2727</a>
       <a class="persona-mail" href="mailto:manuelperezfig1952@gmail.com">manuelperezfig1952@gmail.com</a>
       <div class="acciones">
-        <a class="btn btn-wa" href="https://wa.me/17874872727?text=Hola%20Manuel%2C%20vi%20tu%20tarjeta%20y%20quiero%20conversar%20sobre%20mi%20negocio." target="_blank" rel="noopener">Conversemos por WhatsApp</a>
-        <a class="btn btn-llamar" href="tel:+17874872727">Llamar</a>
+        <a class="btn btn-wa" id="btnWA" href="https://wa.me/17874872727?text=Hola%20Manuel%2C%20vi%20tu%20tarjeta%20y%20quiero%20conversar%20sobre%20mi%20negocio." target="_blank" rel="noopener" data-es="Conversemos por WhatsApp" data-en="Chat on WhatsApp">Conversemos por WhatsApp</a>
+        <a class="btn btn-llamar" href="tel:+17874872727" data-es="Llamar" data-en="Call">Llamar</a>
       </div>
       <div class="fila-2">
-        <a class="btn btn-sec" id="btnGuardar" href="#" download="Manuel-Perez-MANU_IA.vcf">Guardar contacto</a>
-        <button class="btn btn-sec" id="btnCompartir" type="button">Compartir</button>
+        <a class="btn btn-sec" id="btnGuardar" href="#" download="Manuel-Perez-MANU_IA.vcf" data-es="Guardar contacto" data-en="Save contact">Guardar contacto</a>
+        <button class="btn btn-sec" id="btnCompartir" type="button" data-es="Compartir" data-en="Share">Compartir</button>
       </div>
       <p class="aviso" id="aviso"></p>
     </div>
@@ -140,16 +150,32 @@
     ].join('\r\n');
     document.getElementById('btnGuardar').href = 'data:text/vcard;charset=utf-8,' + encodeURIComponent(vcard);
     var aviso = document.getElementById('aviso');
+    var idioma = 'es';
+    var textos = {
+      es: { wa: 'Hola Manuel, vi tu tarjeta y quiero conversar sobre mi negocio.', copiado: 'Enlace copiado. Pégalo en WhatsApp o en un mensaje.', copiar: 'Copia el enlace de la barra del navegador para compartir.', share: 'Tarjeta digital de Manuel Pérez, MANU_IA Business & Associates' },
+      en: { wa: 'Hi Manuel, I saw your card and would like to talk about my business.', copiado: 'Link copied. Paste it in WhatsApp or a message.', copiar: 'Copy the link from the address bar to share.', share: 'Digital card of Manuel Pérez, MANU_IA Business & Associates' }
+    };
+    function cambiarIdioma(nuevo) {
+      idioma = nuevo;
+      document.documentElement.lang = nuevo;
+      document.querySelectorAll('[data-es]').forEach(function (el) { el.textContent = el.getAttribute('data-' + nuevo); });
+      document.getElementById('btnWA').href = 'https://wa.me/17874872727?text=' + encodeURIComponent(textos[nuevo].wa);
+      document.getElementById('btnES').classList.toggle('activo', nuevo === 'es');
+      document.getElementById('btnEN').classList.toggle('activo', nuevo === 'en');
+      aviso.textContent = '';
+    }
+    document.getElementById('btnES').addEventListener('click', function () { cambiarIdioma('es'); });
+    document.getElementById('btnEN').addEventListener('click', function () { cambiarIdioma('en'); });
     document.getElementById('btnCompartir').addEventListener('click', function () {
-      var datos = { title: 'Manuel Pérez · MANU_IA', text: 'Tarjeta digital de Manuel Pérez, MANU_IA Business & Associates', url: location.href };
+      var datos = { title: 'Manuel Pérez · MANU_IA', text: textos[idioma].share, url: location.href };
       if (navigator.share) {
         navigator.share(datos).catch(function () {});
       } else if (navigator.clipboard) {
         navigator.clipboard.writeText(location.href).then(function () {
-          aviso.textContent = 'Enlace copiado. Pégalo en WhatsApp o en un mensaje.';
+          aviso.textContent = textos[idioma].copiado;
         });
       } else {
-        aviso.textContent = 'Copia el enlace de la barra del navegador para compartir.';
+        aviso.textContent = textos[idioma].copiar;
       }
     });
   </script>
