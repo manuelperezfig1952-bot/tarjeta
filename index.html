@@ -26,7 +26,7 @@
     html, body { margin: 0; }
     body {
       min-height: 100vh; min-height: 100dvh;
-      padding: 18px 14px 28px;
+      padding: 14px 10px 24px;
       background:
         radial-gradient(900px 500px at 50% -10%, rgba(30,136,229,0.22), transparent 60%),
         radial-gradient(600px 400px at 100% 100%, rgba(56,182,255,0.08), transparent 60%),
@@ -37,7 +37,7 @@
       -webkit-font-smoothing: antialiased;
     }
     .tarjeta {
-      width: 100%; max-width: 420px;
+      width: 100%; max-width: 480px;
       position: relative;
       border-radius: 30px;
       padding: 1px;
@@ -52,10 +52,10 @@
     }
 
     /* ===== Logo animado ===== */
-    .hero { position: relative; aspect-ratio: 1 / 1; max-height: 400px; background: #0F1A2D; }
+    .hero { position: relative; width: 272px; height: 272px; margin: 12px auto 0; background: transparent; }
     .hero video, .hero img.poster {
       position: absolute; inset: 0; width: 100%; height: 100%;
-      object-fit: cover; object-position: 50% 50%;
+      object-fit: contain; object-position: 50% 50%;
       display: block; transition: opacity 0.6s ease;
     }
     .hero img.poster { z-index: 0; }
@@ -63,8 +63,9 @@
     .hero video.oculto { opacity: 0; }
     .hero .velo {
       position: absolute; inset: 0; z-index: 2; pointer-events: none;
-      box-shadow: inset 0 0 50px 18px var(--tarjeta-2);
-      background: linear-gradient(180deg, rgba(16,26,46,0.18) 0%, rgba(16,26,46,0) 22%, rgba(16,26,46,0) 80%, var(--tarjeta-2) 100%);
+      background:
+        linear-gradient(90deg, var(--tarjeta-2) 0%, rgba(16,26,46,0) 14%, rgba(16,26,46,0) 86%, var(--tarjeta-2) 100%),
+        linear-gradient(180deg, var(--tarjeta-2) 0%, rgba(16,26,46,0) 12%, rgba(16,26,46,0) 84%, var(--tarjeta-2) 100%);
     }
     .idioma {
       display: flex; border-radius: 999px; overflow: hidden; flex: 0 0 auto;
@@ -78,41 +79,39 @@
     }
     .idioma button.activo { background: var(--azul); color: #06101F; }
 
-    .contenido { position: relative; z-index: 3; padding: 0 28px 30px; margin-top: -14px; }
+    .contenido { position: relative; z-index: 3; padding: 0 22px 24px; margin-top: -6px; }
 
     .eyebrow {
       display: flex; align-items: center; gap: 12px;
       font-size: 0.68rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase;
-      color: var(--azul-claro); margin-bottom: 18px; white-space: nowrap;
+      color: var(--azul-claro); margin-bottom: 14px; white-space: nowrap;
     }
     .eyebrow .linea { flex: 1; height: 1px; background: linear-gradient(90deg, rgba(143,211,255,0.45), transparent); }
 
     .titular {
-      font-size: 1.62rem; font-weight: 800; line-height: 1.22; letter-spacing: -0.01em;
-      margin: 0 0 8px;
+      font-size: 1.42rem; font-weight: 800; line-height: 1.22; letter-spacing: -0.01em;
+      margin: 0 0 16px;
     }
     .titular em { font-style: normal; color: var(--azul-claro); }
     .bajada { color: var(--texto-suave); font-size: 0.95rem; line-height: 1.5; margin: 0 0 24px; font-weight: 500; }
 
-    .servicios { list-style: none; padding: 0; margin: 0 0 28px; display: grid; gap: 8px; }
+    .servicios { list-style: none; padding: 0; margin: 0 0 6px; }
     .servicios li {
       display: flex; align-items: center; gap: 12px;
-      padding: 12px 14px; border-radius: 14px;
-      background: rgba(143,211,255,0.045);
-      border: 1px solid var(--linea);
-      font-size: 0.96rem; font-weight: 600; color: var(--texto-suave);
+      padding: 9px 2px; border-bottom: 1px solid var(--linea);
+      font-size: 0.95rem; font-weight: 600; color: var(--texto-suave);
     }
     .servicios li .ico {
-      flex: 0 0 30px; width: 30px; height: 30px; border-radius: 9px;
+      flex: 0 0 26px; width: 26px; height: 26px; border-radius: 8px;
       display: grid; place-items: center;
       background: linear-gradient(145deg, rgba(56,182,255,0.28), rgba(30,136,229,0.12));
       border: 1px solid rgba(143,211,255,0.25);
     }
-    .servicios li .ico svg { width: 15px; height: 15px; stroke: var(--azul-claro); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .servicios li .ico svg { width: 13px; height: 13px; stroke: var(--azul-claro); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
-    .persona { display: flex; align-items: center; gap: 14px; padding: 18px 0 20px; border-top: 1px solid var(--linea); }
+    .persona { display: flex; align-items: center; gap: 12px; padding: 16px 0 12px; }
     .persona .inicial {
-      flex: 0 0 52px; width: 52px; height: 52px; border-radius: 50%;
+      flex: 0 0 44px; width: 44px; height: 44px; border-radius: 50%;
       display: grid; place-items: center; font-weight: 800; font-size: 1.15rem; color: #06101F;
       background: linear-gradient(145deg, var(--azul-claro), var(--azul-2));
       box-shadow: 0 6px 18px rgba(56,182,255,0.35);
@@ -121,12 +120,12 @@
     .persona-rol { color: var(--gris); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; margin: 3px 0 0; }
     .persona-tel, .persona-mail { display: block; text-decoration: none; }
     .persona-tel { color: var(--texto); font-size: 1.22rem; font-weight: 700; margin-bottom: 2px; letter-spacing: 0.01em; }
-    .persona-mail { color: var(--texto-suave); font-size: 0.9rem; margin-bottom: 20px; word-break: break-all; }
+    .persona-mail { color: var(--texto-suave); font-size: 0.9rem; margin-bottom: 16px; word-break: break-all; }
 
     .acciones { display: grid; grid-template-columns: 1.7fr 1fr; gap: 10px; }
     .btn {
       display: flex; align-items: center; justify-content: center; gap: 8px;
-      border-radius: 14px; padding: 15px 12px; font-size: 0.98rem; font-weight: 800;
+      border-radius: 14px; padding: 13px 12px; font-size: 0.96rem; font-weight: 800;
       text-decoration: none; cursor: pointer; font-family: inherit; line-height: 1.15; text-align: center;
       transition: transform 0.12s ease, box-shadow 0.2s ease, background 0.2s ease;
     }
@@ -144,12 +143,12 @@
     .btn-sec { background: transparent; color: var(--texto-suave); border: 1px solid var(--linea); font-weight: 700; font-size: 0.92rem; }
     .aviso { color: var(--gris); font-size: 0.78rem; margin: 12px 0 0; min-height: 1em; text-align: center; }
 
-    .pie { display: flex; justify-content: space-between; align-items: center; margin-top: 22px; padding-top: 14px; border-top: 1px solid var(--linea); color: var(--gris); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+    .pie { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--linea); color: var(--gris); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
     .pie a { color: var(--azul-claro); text-decoration: none; }
 
     @media (max-width: 360px) {
-      .hero { height: 290px; }
-      .contenido { padding: 0 20px 24px; }
+      .hero { width: 240px; height: 240px; }
+      .contenido { padding: 0 16px 20px; }
       .titular { font-size: 1.45rem; }
     }
     @media (prefers-reduced-motion: reduce) { .hero video { display: none; } }
@@ -179,7 +178,6 @@
         </div>
 
         <h1 class="titular" data-es="Automatizaciones y <em>agentes de voz</em> con CRM para tu negocio." data-en="Automations and <em>AI voice agents</em> with CRM for your business.">Automatizaciones y <em>agentes de voz</em> con CRM para tu negocio.</h1>
-        <p class="bajada" data-es="Que tu negocio atienda, agende y dé seguimiento solo — sin que tú tengas que estar encima de todo." data-en="Let your business answer, book and follow up on its own — without you having to be on top of everything.">Que tu negocio atienda, agende y dé seguimiento solo — sin que tú tengas que estar encima de todo.</p>
 
         <ul class="servicios">
           <li><span class="ico"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-5A8 8 0 1 1 21 12z"/></svg></span><span data-es="Atención al cliente por WhatsApp" data-en="Customer service via WhatsApp">Atención al cliente por WhatsApp</span></li>
