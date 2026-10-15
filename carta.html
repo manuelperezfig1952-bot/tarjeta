@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Letter to Aprima — Dr. Mattei Office</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+/* Layout: one business letter on a sheet, toolbar above with language and theme switches.
+   Navy + sky blue come from the MANU_IA logo. Wordmark in Outfit, letter text in Source Sans 3. */
+:root{
+  --desk:#e9edf3; --paper:#ffffff; --ink:#1a2233; --muted:#5b6578; --navy:#013474; --sky:#2b84d6;
+  --rule:#d5dce8; --chip:#eef4fc;
+  --display:'Outfit','Segoe UI',Arial,sans-serif; --body:'Source Sans 3','Segoe UI',Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --desk:#0c121d; --paper:#141c2b; --ink:#e6ebf4; --muted:#9aa6bb; --navy:#8fbcf2; --sky:#5fb0f5;
+    --rule:#2a354a; --chip:#1b2a42; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --desk:#0c121d; --paper:#141c2b; --ink:#e6ebf4; --muted:#9aa6bb; --navy:#8fbcf2; --sky:#5fb0f5;
+  --rule:#2a354a; --chip:#1b2a42; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--desk); color:var(--ink); font-family:var(--body); font-size:17px; line-height:1.55;
+  padding-block:24px;
+  padding-left:max(16px,env(safe-area-inset-left,0px)); padding-right:max(16px,env(safe-area-inset-right,0px));
+}
+.wrap{max-width:760px; margin:0 auto}
+.bar{display:flex; justify-content:flex-end; flex-wrap:wrap; gap:10px; margin-bottom:12px}
+.seg{display:inline-flex; border:1px solid var(--rule); border-radius:8px; overflow:hidden; background:var(--paper)}
+.seg button, .themebtn{font-family:var(--display); font-weight:600; font-size:13px; letter-spacing:.04em; border:0; background:transparent; color:var(--muted); padding:8px 14px; cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--navy); color:var(--paper)}
+.themebtn{border:1px solid var(--rule); border-radius:8px; background:var(--paper); color:var(--navy)}
+.seg button:focus-visible,.themebtn:focus-visible{outline:2px solid var(--sky); outline-offset:2px}
+.sheet{background:var(--paper); border:1px solid var(--rule); border-radius:4px; box-shadow:0 18px 40px -24px rgba(1,20,50,.35); padding:clamp(24px,6vw,56px)}
+.letterhead{padding-bottom:14px; border-bottom:3px solid var(--navy); margin-bottom:28px}
+.wordmark{font-family:var(--display); font-weight:700; font-size:clamp(28px,6vw,38px); color:var(--navy); letter-spacing:.5px; line-height:1}
+.wordmark b{color:var(--sky); font-weight:700}
+.wordmark small{font-size:.48em; font-weight:600; margin-left:10px; letter-spacing:0}
+.tagline{margin-top:8px; font-size:11px; letter-spacing:.28em; color:var(--muted); text-transform:uppercase}
+.date{color:var(--muted); margin:0 0 20px}
+.to{margin:0 0 22px} .to strong{display:block}
+.re{margin:0 0 6px; font-family:var(--display); font-weight:600; color:var(--navy); font-size:18px; line-height:1.3; text-wrap:balance}
+.practice{margin:0 0 24px; color:var(--muted); font-size:15px}
+p{margin:0 0 14px}
+ol{margin:0 0 16px; padding-left:0; list-style:none; counter-reset:q}
+ol li{counter-increment:q; position:relative; padding-left:34px; margin-bottom:9px}
+ol li::before{content:counter(q)"."; position:absolute; left:0; font-family:var(--display); font-weight:700; color:var(--sky)}
+.sign{margin-top:30px}
+.cols{display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-top:8px}
+.col{min-width:0}
+.label{font-family:var(--display); font-weight:600; font-size:14px; color:var(--navy); margin:0 0 30px}
+.line{border-bottom:1px solid var(--ink); margin-bottom:8px; height:1px}
+.col p{margin:0 0 2px; font-size:15.5px; overflow-wrap:anywhere}
+.col strong{font-weight:600}
+.col a{color:var(--sky); text-underline-offset:2px}
+.actions{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
+.btn{display:inline-block; font-family:var(--display); font-weight:600; font-size:14px; text-decoration:none; padding:9px 14px; border-radius:6px; border:1px solid var(--navy); color:var(--navy); background:var(--chip)}
+.btn:hover,.btn:focus-visible{background:var(--navy); color:var(--paper)}
+.btn:focus-visible{outline:2px solid var(--sky); outline-offset:2px}
+footer{margin-top:34px; padding-top:12px; border-top:1px solid var(--sky); text-align:center; font-size:13px; color:var(--muted)}
+/* language switch: English shows by default, so the page reads even without scripts */
+.es{display:none}
+body[data-lang="es"] .en{display:none}
+body[data-lang="es"] .es{display:revert}
+body[data-lang="es"] li.es,body[data-lang="es"] p.es,body[data-lang="es"] h1.es{display:block}
+body[data-lang="es"] .tagline.es,body[data-lang="es"] strong.es{display:block}
+@media (max-width:560px){ .cols{grid-template-columns:1fr} body{font-size:16.5px} }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="bar">
+    <div class="seg" role="group" aria-label="Language / Idioma">
+      <button type="button" id="b-en" aria-pressed="true">English</button>
+      <button type="button" id="b-es" aria-pressed="false">Español</button>
+    </div>
+    <button type="button" class="themebtn" id="b-theme"></button>
+  </div>
+<main class="sheet">
+  <header class="letterhead">
+    <div class="wordmark">MANU <b>IA</b><small>Business &amp; Associates</small></div>
+    <div class="tagline es">Automatizamos procesos, impulsamos negocios</div>
+    <div class="tagline en">Automating processes, driving business</div>
+  </header>
+
+  <p class="date en">October 15, 2026</p><p class="date es">15 de octubre de 2026</p>
+
+  <p class="to"><strong class="en">Ms. Sherry Woolard</strong><strong class="es">Sra. Sherry Woolard</strong>CGM APRIMA</p>
+
+  <h1 class="re en">RE: Request for FHIR / secure API access for appointment scheduling — Aprima 19.2</h1>
+  <h1 class="re es">ASUNTO: Solicitud de acceso FHIR / API segura para el manejo de citas — Aprima 19.2</h1>
+  <p class="practice en">Practice: Office of Dr. Jorge Mattei Louis, Internal Medicine — Santurce, Puerto Rico</p>
+  <p class="practice es">Oficina: Dr. Jorge Mattei Louis, Medicina Interna — Santurce, Puerto Rico</p>
+
+  <p class="en">Dear Ms. Woolard,</p><p class="es">Estimada Sra. Woolard:</p>
+  <p class="en">I am writing on behalf of the office of Dr. Jorge Mattei Louis, an internal medicine practice in Santurce, Puerto Rico. The practice uses Aprima 19.2 for its medical records and appointment scheduling.</p>
+  <p class="es">Le escribo de parte de la oficina del Dr. Jorge Mattei Louis, una práctica de medicina interna en Santurce, Puerto Rico. La oficina usa Aprima 19.2 para sus expedientes médicos y el manejo de citas.</p>
+  <p class="en">The practice is installing a phone assistant that answers patient calls and records appointment requests. We would like to connect it to Aprima so that appointment requests and the practice’s open slots can be managed in one place. The practice’s administrator previously requested API access with the vendor’s authorization, and we have not yet received an answer.</p>
+  <p class="es">La oficina está instalando una asistente telefónica que contesta las llamadas de los pacientes y anota las solicitudes de cita. Queremos conectarla con Aprima para manejar en un solo lugar las solicitudes y los espacios disponibles. La administradora de la oficina solicitó antes el acceso a la API con la autorización del proveedor, y todavía no hemos recibido respuesta.</p>
+  <p class="en">We would be grateful for your help with the following:</p>
+  <p class="es">Le agradeceríamos su ayuda con lo siguiente:</p>
+  <ol>
+    <li class="en">Confirm which version the practice is running, and whether it is hosted in the cloud or installed in the office.</li>
+    <li class="es">Confirmar qué versión tiene la oficina y si está en la nube o instalada en la oficina.</li>
+    <li class="en">Confirm whether the account has the FHIR / secure API connection enabled, and what it allows: reading existing appointments, creating new appointments, or only reading patient data.</li>
+    <li class="es">Confirmar si la cuenta tiene activada la conexión FHIR / API segura y qué permite: leer las citas existentes, crear citas nuevas, o solo leer datos del paciente.</li>
+    <li class="en">Send the FHIR API documentation, the API Terms of Use, and the steps required to authorize the connection.</li>
+    <li class="es">Enviarnos la documentación de la API FHIR, los términos de uso de la API y los pasos necesarios para autorizar la conexión.</li>
+    <li class="en">Tell us who in the practice must approve it, and whether an authorization form is needed for the practice’s technology partner, Manuel Pérez of MANU_IA Business &amp; Associates, to receive access.</li>
+    <li class="es">Indicarnos quién en la oficina debe aprobarla y si hace falta un formulario de autorización para que el socio tecnológico de la oficina, Manuel Pérez de MANU_IA Business &amp; Associates, reciba el acceso.</li>
+    <li class="en">Let us know the cost, if any (interface fees), and the expected time to activate the connection.</li>
+    <li class="es">Informarnos el costo, si lo hay (cargo por interfaz), y el tiempo estimado para activar la conexión.</li>
+    <li class="en">Tell us whether CGM CONNECTION (appointment reminders by text, email or phone) is available for this version, and its price.</li>
+    <li class="es">Indicarnos si CGM CONNECTION (recordatorios de citas por texto, correo o llamada) está disponible para esta versión y su precio.</li>
+  </ol>
+  <p class="en">We would also appreciate a short call with the person in charge of integrations. You may reach the practice at 787-728-2361, or Manuel Pérez at 787-487-2727.</p>
+  <p class="es">También agradeceríamos una breve llamada con la persona encargada de integraciones. Puede comunicarse con la oficina al 787-728-2361, o con Manuel Pérez al 787-487-2727.</p>
+  <p class="en">Thank you very much for your time and assistance.</p>
+  <p class="es">Muchas gracias por su tiempo y su ayuda.</p>
+
+  <div class="sign">
+    <p class="en">Sincerely,</p><p class="es">Atentamente,</p>
+    <div class="cols">
+      <div class="col">
+        <p class="label en">On behalf of the practice:</p><p class="label es">En representación de la oficina:</p>
+        <div class="line"></div>
+        <p><strong>Office of Dr. Jorge Mattei Louis</strong></p>
+        <p>Calle Pavía 655, Edificio Chinea, <span class="en">Office</span><span class="es">oficina</span> 202</p>
+        <p>Santurce, PR 00909</p>
+        <p>Tel. 787-728-2361</p>
+      </div>
+      <div class="col">
+        <p class="label en">Technology partner:</p><p class="label es">Socio tecnológico:</p>
+        <div class="line"></div>
+        <p><strong>Manuel Pérez</strong></p>
+        <p>MANU_IA Business &amp; Associates</p>
+        <p>Bayamón, Puerto Rico</p>
+        <p><span class="en">Cell / WhatsApp</span><span class="es">Celular / WhatsApp</span>: 787-487-2727</p>
+        <p>manuelperezfig1952@gmail.com</p>
+        <div class="actions">
+          <a class="btn" href="https://wa.me/17874872727" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn" href="https://manuelperezfig1952-bot.github.io/tarjeta/" target="_blank" rel="noopener"><span class="en">Digital business card</span><span class="es">Tarjeta digital</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>MANU_IA Business &amp; Associates &nbsp;•&nbsp; Bayamón, Puerto Rico &nbsp;•&nbsp; 787-487-2727 &nbsp;•&nbsp; manuelperezfig1952@gmail.com</footer>
+</main>
+</div>
+
+<script>
+(function(){
+  var root=document.documentElement, body=document.body;
+  var bEn=document.getElementById('b-en'), bEs=document.getElementById('b-es'), bT=document.getElementById('b-theme');
+  var titles={en:'Letter to Aprima — Dr. Mattei Office',es:'Carta a Aprima — Oficina Dr. Mattei'};
+  function get(k){try{return localStorage.getItem(k)}catch(e){return null}}
+  function set(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+  function isDark(){var t=root.getAttribute('data-theme'); if(t) return t==='dark'; return window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches}
+  function lang(l){body.setAttribute('data-lang',l); root.lang=l; bEn.setAttribute('aria-pressed',l==='en'); bEs.setAttribute('aria-pressed',l==='es'); document.title=titles[l]; set('lang',l); label()}
+  function label(){var es=body.getAttribute('data-lang')==='es'; bT.textContent=isDark()?(es?'Modo claro':'Light mode'):(es?'Modo oscuro':'Dark mode')}
+  bEn.onclick=function(){lang('en')}; bEs.onclick=function(){lang('es')};
+  bT.onclick=function(){var d=!isDark(); root.setAttribute('data-theme',d?'dark':'light'); set('theme',d?'dark':'light'); label()};
+  var st=get('theme'); if(st==='dark'||st==='light') root.setAttribute('data-theme',st);
+  var sl=get('lang'); if(!sl){var nl=(navigator.language||'en').toLowerCase(); sl=nl.indexOf('es')===0?'es':'en'}
+  lang(sl==='es'?'es':'en');
+})();
+</script>
+</body>
+</html>
