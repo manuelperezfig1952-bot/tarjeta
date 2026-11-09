@@ -222,17 +222,10 @@
   </div>
 
   <script>
-    // ---- Logo animado: se reproduce, se queda quieto un momento y vuelve a empezar con un fundido ----
+    // ---- Logo animado: se reproduce una sola vez y se queda quieto con el logo final; al tocarlo se repite ----
     var video = document.getElementById('logoVideo');
     var reinicio = null;
     function reproducir() { var p = video.play(); if (p && p.catch) { p.catch(function () {}); } }
-    video.addEventListener('ended', function () {
-      clearTimeout(reinicio);
-      reinicio = setTimeout(function () {
-        video.classList.add('oculto');
-        setTimeout(function () { video.currentTime = 0; reproducir(); video.classList.remove('oculto'); }, 650);
-      }, 4000);
-    });
     document.getElementById('hero').addEventListener('click', function (e) {
       
       clearTimeout(reinicio); video.currentTime = 0; video.classList.remove('oculto'); reproducir();
